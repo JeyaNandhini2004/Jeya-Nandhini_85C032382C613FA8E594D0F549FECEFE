@@ -1,41 +1,19 @@
-#Implement a class called Bank Account that represents a bank account. The class should have private attributes for account number, account holder name and account balance. Include methods to deposit money, withdraw money. and display the account balance. Ensure that the account balance cannot be accessed directly from outside the class. Write a program to create an Instance of the Bank Account class and test the deposit and withdrawal functionality
-class BankAccount:
-  def __init__(self,account_number, account_holder_name,initial_balance=0.0):
-    self.__account_number= account_number
-    self.__account_holder_name= account_holder_name
-    self.__account_balance= initial_balance
-
-  def deposit(self,amount):
-    if amount>0:
-      self.__account_balance+=amount
-      print(f"Deposited ${amount:.2f} into account{self.__account_number}")
-    else:
-      print("Invalid deposit amount.Please deposit a positive amount.")
-
-  def withdraw(self,amount):
-    if amount>0:
-      if self.__account_balance>=amount:
-        self.__account_balance-=amount
-        print(f"Withdraw ${amount:.2f} from account {self.__account_number}") 
-      else:
-         print("Insufficient balance.cannot withdraw.") 
-    else:
-      print("invalid withdrawal amount.Please withdraw a positive amount.")
-       
-  def display_balance(self): 
-     print(f"Account {self.__account_number} balance:${self.__account_balance:.2f}")
-
-
-#Testing the BankAccount class
-if __name__=="__main__":
-  #creat a BankAccount instance    
- account1=BankAccount("123456","John doe",1000.0)
-
-#Deposit-money  
- account1.deposit(500.0)
-
-#withdraw-money 
- account1.withdraw(200.0)
-
-#display-balance 
- account1.display_balance()
+#Implement a class called Player that represents a cricket player. The Player class should have a method called play() which prints "The player is playing cricket. Derive two classes. Batsman and Bowler, from the Player class. Override the play() method in each derived class to print "The batsman is batting" and "The bowler is bowling, respectively. Write a program to create objects of both the Batsman and Bowler classes and call the play() method for each object.
+#define the player class
+class player:
+  def play(self):
+    print("The player is playing cricket.")
+#define the batsman class, derived from player
+class batsman (player):
+ def play(self):
+   print("The batsman is batting.")
+#define the bowler class,derived from player
+class bowler(player):
+  def play(self): 
+    print("The bowler is bowling.")
+#create objects of batsman and bowler classes
+batsman=batsman()
+bowler=bowler()
+#call the play() method for each object
+batsman.play()
+bowler.play()
