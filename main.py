@@ -1,19 +1,28 @@
-#Implement a class called Player that represents a cricket player. The Player class should have a method called play() which prints "The player is playing cricket. Derive two classes. Batsman and Bowler, from the Player class. Override the play() method in each derived class to print "The batsman is batting" and "The bowler is bowling, respectively. Write a program to create objects of both the Batsman and Bowler classes and call the play() method for each object.
-#define the player class
-class player:
-  def play(self):
-    print("The player is playing cricket.")
-#define the batsman class, derived from player
-class batsman (player):
- def play(self):
-   print("The batsman is batting.")
-#define the bowler class,derived from player
-class bowler(player):
-  def play(self): 
-    print("The bowler is bowling.")
-#create objects of batsman and bowler classes
-batsman=batsman()
-bowler=bowler()
-#call the play() method for each object
-batsman.play()
-bowler.play()
+"""
+Implement a function called sort_students that takes a list of student objects as input and sorts the list based on their CGPA (Cumulative Grade Point Average) in descending order. Each student object has the following attributes: name (string), roll number (string), and cgpa (float). Test the function with different input lists of students
+"""
+
+class Student:
+
+  def __init__(self, name, roll_number, cgpa):
+    self.name = name
+    self.roll_number = roll_number
+    self.cgpa = cgpa
+
+def sort_students(student_list):
+#sort the list of the students in descending order of cgpa
+    sorted_students = sorted(student_list, key=lambda student:student.cgpa, reverse = True)
+  
+#syntax - lambda arg:exp 
+    return sorted_students
+
+
+#example usage:
+students = [Student("Nandhu", "A123", 7.8), Student("Pavi", "A124", 8.9), Student("Raji", "A125", 9.1), Student("Thangam", "A126", 9.9)]
+
+sorted_students = sort_students(students)
+
+# Print the sorted list of students
+
+for student in sorted_students:
+  print("Name: {}, Roll number: {}, cgpa: {}".format(student.name, student.roll_number, student.cgpa))
